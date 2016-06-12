@@ -1,11 +1,11 @@
-Rails.application.routes.draw do 
-  devise_for :users, controllers: { sessions: "users/sessions" }
-  resources :users  do
+Rails.application.routes.draw do
+  devise_for :users, controllers: { sessions: 'users/sessions' }
+  resources :users do
     collection do
       post :search_url
     end
   end
-  root "users#index" 
+  root 'users#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
