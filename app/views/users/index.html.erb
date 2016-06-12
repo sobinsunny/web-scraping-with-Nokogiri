@@ -16,7 +16,7 @@
     </thead>
 <%@user_activity.each do |activity|%>
 	<tr>
-		<td><%=activity.user.email%></td>
+		<td><%=activity.user.name%></td>
 		<td><%=activity.no_of_records_crowled%></td>
 		<td><%=activity.created_at.strftime("%m/%d/%Y")%></td>
 	</tr>

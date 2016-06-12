@@ -11,8 +11,8 @@ class UsersController < ApplicationController
      	  	   current_user.record_user_activity(@product,params[:search])
      	  	   render :show	
      	  rescue Exception => e
-     	  	   flash[:error] = "Enter URl"
-	 		   redirect_to(root_path)
+     	  	   flash[:error] = "Invalid URl"
+	 		       redirect_to(root_path)
      	  end	
 	 else
 		 flash[:error] = "Enter URl"

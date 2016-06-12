@@ -9,11 +9,13 @@
         </div>
         <div class="span10">
       		<h1><%=@product[:titile]%></h1>
-			<p><%=@product[:price]%></p>
-			<p><%=@product[:discount]%></p>
-			<p><%=@product[:emi_starts_from]%></p>
-			<p>actual price : <%=@product[:actual_price]%></p>
+    		  <p><%=@product[:price]%></p>
+    			<p><%=@product[:discount]%></p>
+    			<p><%=@product[:emi_starts_from]%></p>
+    			<p>actual price : <%=@product[:actual_price]%></p>
         </div>
       </div>
     </div>
+  <%else%>
+   
   <%end%>
