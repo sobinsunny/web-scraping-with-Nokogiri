@@ -1,8 +1,24 @@
 
-<%=form_for "search", :url=>{:action=>"search_url"} do |f|%>
-<div class="form-group">
-    <%= label_tag "Search" %>  : 
-   <%=text_field_tag "search" ,'',:placeholder=>"Enter Web Address"%>
-</div>
- <%= submit_tag "Sign up", class: "btn btn-primary btn-lg" %>
+<%=form_for "search", :method =>'get', :url=>{:action=>"search_url"} do |f|%>
+	<div class="form-group">
+	    <%= label_tag "Search" %>  : 
+	   <%=text_field_tag "search" ,'',:placeholder=>"Enter Web Address"%>
+	</div>
+	 <%= submit_tag "Search", class: "btn btn-primary btn-lg" %>
 <%end%>
+<table class='table table-condensed'>
+   <thead>
+      <tr>
+        <th>Email</th>
+        <th>Number of record</th>
+        <th> </th>
+      </tr>
+    </thead>
+<%@user_activity.each do |activity|%>
+	<tr>
+		<td><%=activity.user.email%></td>
+		<td><%=activity.no_of_records_crowled%></td>
+		<td><%=activity.created_at.strftime("%m/%d/%Y")%></td>
+	</tr>
+<%end%>
+</table>

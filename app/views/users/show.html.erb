@@ -1,14 +1,19 @@
 
 
 
-
---------------------------------
-<h1><%=@product[:titile]%></h1>
-<p><%=@product[:price]%></p>
-<p><%=@product[:discount]%></p>
-<p><%=@product[:emi_starts_from]%></p>
-<p>actual price : <%=@product[:actual_price]%></p>
-<%=%>
-<div><%=image_tag(@product[:image])%></div>
-
-------------------------------------
+<%unless @product.nil?%>
+ <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span2">
+        	<%=image_tag(@product[:image],:class=>'img-rounded',:width=>304,:height=>236)%>
+        </div>
+        <div class="span10">
+      		<h1><%=@product[:titile]%></h1>
+			<p><%=@product[:price]%></p>
+			<p><%=@product[:discount]%></p>
+			<p><%=@product[:emi_starts_from]%></p>
+			<p>actual price : <%=@product[:actual_price]%></p>
+        </div>
+      </div>
+    </div>
+  <%end%>

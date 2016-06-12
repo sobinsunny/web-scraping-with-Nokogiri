@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { sessions: 'users/sessions' }
   resources :users do
     collection do
-      post :search_url
+      get :search_url
     end
   end
   root 'users#index'
