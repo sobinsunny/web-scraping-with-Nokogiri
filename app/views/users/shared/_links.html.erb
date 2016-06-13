@@ -2,7 +2,8 @@
   <%= link_to "Log in", new_session_path(resource_name) %><br />
 <% end -%>
 <%- if devise_mapping.omniauthable? %>
+  <center><h4>OR</h4></center>
   <%- resource_class.omniauth_providers.each do |provider| %>
- 		 <%= link_to "Sign in with Google", user_omniauth_authorize_path(:google_oauth2) %>
+ <%= link_to "Sign in with Google", user_omniauth_authorize_path(:google_oauth2),:class=>"btn btn-lg btn-google btn-block" %>
   <% end -%>
 <% end -%>

@@ -4,6 +4,7 @@ class CreateActivities < ActiveRecord::Migration
       t.references :user
       t.integer :no_of_records_crowled
       t.string  :url
+      t.string  :titile
       t.timestamps null: false
     end
   end

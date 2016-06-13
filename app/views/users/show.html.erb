@@ -1,21 +1,59 @@
+<div class="container-fluid">
+  <div class="content-wrapper"> 
+    <div class="item-container">  
+      <div class="container"> 
+        <div class="col-md-14">
+          <div class="product col-md-3 service-image-left">  
+              <%=image_tag(@product[:image],:class=>'img-rounded',:height=>300)%>
+          </div>
 
 
-
-<%unless @product.nil?%>
- <div class="container-fluid">
-      <div class="row-fluid">
-        <div class="span2">
-        	<%=image_tag(@product[:image],:class=>'img-rounded',:width=>304,:height=>236)%>
+        <div class="container service1-items col-sm-2 col-md-2 pull-left">
+          <div class="product-title"><h2><%=@product[:titile]%></h2></div>
+          <div class="product-desc"><%=@product[:sub_titile]%></div>
+          <div class="product-rating"><i class="fa fa-star gold"></i> 
+          <i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> 
+          <i class="fa fa-star gold"></i> <i class="fa fa-star-o"></i> 
+          </div>
+          <hr>
+          <div class="product-price">Price : <%=@product[:price]%></div>
+          <div class="text-muted">Actual <strike>Price<%=@product[:actual_price]%></strike></div>
+          <div class="text-info">Discount : <%=@product[:discount]%></div>
+          <div class="text-success">Emi : <%=@product[:emi_starts_from]%></div>
+          </div>
         </div>
-        <div class="span10">
-      		<h1><%=@product[:titile]%></h1>
-    		  <p><%=@product[:price]%></p>
-    			<p><%=@product[:discount]%></p>
-    			<p><%=@product[:emi_starts_from]%></p>
-    			<p>actual price : <%=@product[:actual_price]%></p>
+    <div class="container-fluid">   
+      <div class="col-md-12 product-info">
+          <ul id="myTab" class="nav nav-tabs nav_tabs">
+            <li class="active"><a href="#service-one" data-toggle="tab">Features</a></li>
+          </ul>
+        <div id="myTabContent" class="tab-content">
+            <div class="tab-pane fade in active" id="service-one">
+              <section class="container product-info">
+              <ul>
+              <%=@product[:key_specifications].each do |k_s|%>
+
+                <li><%=k_s%></li>
+
+              <%end%>
+              </ul>
+              </section>
+                      
+            </div>
+          <div class="tab-pane fade" id="service-two">
+            
+            <section class="container">
+                
+            </section>
+            
+          </div>
+          <div class="tab-pane fade" id="service-three">
+                        
+          </div>
         </div>
+        <hr>
       </div>
     </div>
-  <%else%>
-   
-  <%end%>
+</div>
+
+

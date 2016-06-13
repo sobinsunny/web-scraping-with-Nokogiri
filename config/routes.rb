@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { sessions: 'users/sessions',:omniauth_callbacks => "callbacks" }
+  devise_for :users, controllers: { sessions: 'users/sessions', omniauth_callbacks: 'callbacks' }
   resources :users do
     collection do
       get :search_url

@@ -1,24 +1,42 @@
 
-<%=form_for "search", :method =>'get', :url=>{:action=>"search_url"} do |f|%>
+<div class="container">
+	<div class="row">
+	<%=form_for "search", :method =>'get', :url=>{:action=>"search_url"} do |f|%>
+	<h2>Search here..</h2>
 	<div class="form-group">
-	    <%= label_tag "Search" %>  : 
-	   <%=text_field_tag "search" ,'',:placeholder=>"Enter Web Address"%>
-	</div>
-	 <%= submit_tag "Search", class: "btn btn-primary btn-lg" %>
-<%end%>
-<table class='table table-condensed'>
-   <thead>
+           <div id="custom-search-input">
+                            <div class="input-group col-md-12 well">
+                              <%=text_field_tag "search" ,'',:placeholder=>"Search",:class=>"search-query form-control"%>
+                             <span class="input-group-btn">
+		                            <button class="btn btn-danger" type="button">
+		                                        <span class=" glyphicon glyphicon-search"></span>
+		                             </button>
+                             </span>
+                            </div>
+                        </div>
+			</div>
+	<%end%>			
+</div>
+
+ <% unless @user_activities.empty?%>   
+ <table class='table table-hover'>
+    <thead>
       <tr>
         <th>Email</th>
         <th>Number of record</th>
         <th> </th>
       </tr>
     </thead>
-<%@user_activity.each do |activity|%>
-	<tr>
-		<td><%=activity.user.name%></td>
-		<td><%=activity.no_of_records_crowled%></td>
-		<td><%=activity.created_at.strftime("%m/%d/%Y")%></td>
-	</tr>
-<%end%>
+	<%@user_activities.each do |activity|%>
+		<tr>	
+
+<td class="col-md-2">  <%= link_to "#{activity.titile}", search_url_users_path(:search=>activity.url), :class => "dropdown-toggle"%></td>
+			<td class="col-md-1"><%=activity.no_of_records_crowled%></td>
+			<td class="col-md-2"><%=activity.created_at.strftime("%m/%d/%Y")%></td>
+		</tr>
+	<%end%>
 </table>
+<%else%>
+<div class="alert alert-info">
+  <strong>Info!</strong> No Previous Records</div>
+<%end%>
